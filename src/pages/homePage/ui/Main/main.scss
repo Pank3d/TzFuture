@@ -1,0 +1,114 @@
+main {
+  font-family: "Raleway", sans-serif;
+  display: flex;
+  z-index: 0;
+
+
+  .mentor{
+    margin-top: 67px;
+    margin-left: 84px ;
+  }
+
+  .containerForStatic {
+    display: flex;
+    gap: 230px;
+  }
+
+  .buttons_container {
+    display: flex;
+    gap: 40px;
+    margin-top: 64px;
+    margin-bottom: 112px;
+    .white{
+      border: none;
+      background-color: transparent;
+    }
+    .black{
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  .GPB{
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    width: 202px;
+    height: 132px;
+
+    img{
+      margin-right: 24px;
+      cursor: pointer;
+    } 
+
+    .ceilGBP {
+      font-size: 40px;
+      font-weight: 600;
+      margin: 0;
+      color:#fff
+    }
+
+    p{
+      color: #FFFFFF80;
+    }
+    
+  }
+
+  .techick {
+    font-family: "Montserrat", sans-serif;
+    display: flex;
+    width: 190px;
+    height: 137px;
+
+    .tech_item {
+      display: flex;
+      flex-direction: column;
+      
+    }
+
+    .date {
+      font-size: 40px;
+      font-weight: 600;
+      margin: 0;
+      color:#fff
+    }
+
+    .line {
+      height: 133;
+      margin-right: 24px;
+    }
+
+    p{
+      color: #FFFFFF80;
+;
+    }
+  }
+
+  .nadpis_0 {
+    width: 747px;
+    height: 165px;
+    font-size: 65px;
+    font-weight: 600;
+    line-height: 88px;
+    color: white;
+    margin-top: 176px;
+    text-transform: uppercase;
+  }
+
+  .nadpis_1 {
+    display: flex;
+    color: #ffffff80;
+    margin-top: 53px;
+    margin-bottom: 64px;
+    width: 699px;
+    height: 48px;
+
+   
+
+    img {
+      color:  #FFFFFF9C;
+      padding-top: 14px;
+      margin-right: 24px;
+      height: 39px;
+    }
+  }
+}

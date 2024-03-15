@@ -1,0 +1,88 @@
+.popup {
+    z-index: 1;
+  .popup_form {
+    margin-top: 40px;
+    margin-left: 75px;
+    margin-right: 32px;
+    margin-bottom: 174px;
+
+
+    .submit{
+        margin-top: 24px;
+        width: 380px;
+        height: 71px;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+    }
+
+    .call {
+      margin-bottom: 66px;
+      font-family: "Raleway", sans-serif;
+      width: 490px;
+      height: 148px;
+      color: white;
+      font-size: 50px;
+      line-height: 75px;
+    }
+
+    .popFormInputs {
+      display: flex;
+      flex-direction: column;
+      gap: 65px;
+
+      .check{
+
+        width: 395px;
+        height: 42px;
+
+
+        .SubmitForResponse{
+            width: 30px;
+            height: 30px;
+            margin-right: 23px;
+        }
+        
+        
+        margin-top:50px ;
+        display: flex;
+        justify-content: center;
+        .checkText {
+            color: white;
+            padding: 0;
+            margin: 0;
+        }
+      }
+
+      .name {
+        width: 480px;
+        height: 36px;
+        background-color: transparent;
+        border: none;
+        padding-left: 3px;
+        font-size: 20px;
+        font-weight: 400;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .phone {
+        width: 480px;
+        height: 36px;
+        background-color: transparent;
+        border: none;
+        padding-left: 3px;
+        font-size: 20px;
+        font-weight: 400;
+        color: white;
+        font-family: "Montserrat", sans-serif;
+      }
+    }
+  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #07305d;
+  width: 612px;
+  height: 100%;
+}

@@ -1,0 +1,49 @@
+.header{
+    height: 41px;
+    font-family: "Montserrat", sans-serif;
+
+.navigation { 
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+     color: #fff;
+    
+    .nav_list{
+        display: flex;
+        list-style:none ;
+        gap: 30px;
+        margin-top: 11px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 18px;
+    }
+    
+    .nav_list_item{
+        display: flex;
+        white-space: nowrap;
+    }
+
+    .phone{
+        p{
+            font-weight: 600;
+            margin-top: 11px;
+        }
+        img{
+            width: 41px;
+            height: 41px;
+        }
+        display: flex;
+        gap: 15px;
+    }
+}
+
+
+.logo { 
+    width: 170px;
+    height: 34px;
+}    
+}
+
+    
+
+
