@@ -2,6 +2,17 @@ main {
   font-family: "Raleway", sans-serif;
   display: flex;
   z-index: 0;
+  position: static;
+
+  .popupOpened {
+  pointer-events: none;
+}
+
+
+
+  .error{
+    color: white;
+  }
 
 
   .mentor{

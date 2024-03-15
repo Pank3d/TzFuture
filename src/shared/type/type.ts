@@ -20,3 +20,9 @@ export interface value {
     name:string;
     name_prop:valueProp
 }
+
+export interface dataInter {
+  checkbox:boolean,
+  name:string,
+  phone:string
+}

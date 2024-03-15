@@ -13,7 +13,7 @@ const Main = () => {
   const [data, setData] = useState<Data>();
   const [GBP, setGBP] = useState<number>();
   const [dateForMain, setDateForMain] = useState<number>();
-  const [pop, setPop] = useState<boolean>(true);
+  const [pop, setPop] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,10 +54,10 @@ const Main = () => {
   }, [data]);
 
   return (
-    <main className="main">
-      {!pop ? (
+    <main className={`main ${pop ? "popupOpened" : ""}`}>
+      {pop ? (
         <>
-          <PopUp />
+          <PopUp onClick={() => setPop(false)} />
         </>
       ) : (
         <></>
@@ -76,8 +76,8 @@ const Main = () => {
           <button className="white">
             <img src={buttonWhite} />
           </button>
-          <button className="black" onClick={() => setPop(!pop)}>
-            <img src={buttonBlack}  />
+          <button className="black" onClick={() => setPop(true)}>
+            <img src={buttonBlack} />
           </button>
         </div>
         <div className="containerForStatic">

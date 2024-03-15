@@ -3,12 +3,16 @@ import "./PopUp.scss";
 import line3 from "../../../../../shared/icons/Line 186.png";
 import submitButton from "../../../../../shared/icons/submit.png";
 import InputMask from "react-input-mask";
+import React, { useState } from "react";
+import closeImg from "../../../../../shared/icons/Group 1321314089.png";
+import { dataInter } from "../../../../../shared/type/type";
+import PopUpSaved from "./PopUpSaved/PopUpSaved";
 
-const PopUp = () => {
+const PopUp = ({ onClick }: any) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isValid },
+    formState: {  isValid },
     reset,
     watch,
     trigger,
@@ -20,28 +24,58 @@ const PopUp = () => {
     },
   });
 
+  const [nameError, setNameError] = useState("");
+  const [phoneError, setPhoneError] = useState("");
+  const [saved, setSaved] = useState<boolean>(true);
+
   const handlePhoneKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Backspace" && event.currentTarget.selectionStart === 0) {
       event.preventDefault();
     }
   };
 
-  const onSubmit = async (data: any) => {
-    const isValidForm = await trigger(); // Запускаем проверку валидации
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const name = event.target.value;
+    if (!/^[A-Za-z]+$/.test(name)) {
+      setNameError("Имя должно содержать только буквы");
+    } else if (name.length < 2) {
+      setNameError("Минимальная длина имени 2 символа");
+    } else if (name.length > 10) {
+      setNameError("Максимальная длина имени 10 символов");
+    } else {
+      setNameError("");
+    }
+  };
+
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const phone = event.target.value;
+    if (!/^\+7\s\(\d{3}\)\s\d{3}-\d{2}-\d{2}$/.test(phone)) {
+      setPhoneError("Неверный формат номера телефона");
+    } else {
+      setPhoneError("");
+    }
+  };
+
+  const onSubmit = async (data: dataInter) => {
+    const isValidForm = await trigger(); 
     if (isValidForm) {
-      console.log("нажата");
-      console.log(data);
-      reset(); 
+      localStorage.setItem("formData", JSON.stringify(data));
+      reset();
+      setSaved(false)
     } else {
       console.log("Форма невалидна");
     }
   };
 
-  const watchCheckbox = watch("checkbox"); // Получаем значение чекбокса
+  const watchCheckbox = watch("checkbox"); 
 
   return (
+    
     <div className="popup">
-      <div className="popup_form">
+      {saved ? (<div className="popup_form">
+        <button className="closeBtn" onClick={onClick}>
+          <img src={closeImg} />
+        </button>
         <h1 className="call">Закажите обратный звонок</h1>
         <div className="popFormInputs">
           <label className=" mt-6 ">
@@ -51,15 +85,10 @@ const PopUp = () => {
               className="name"
               {...register("name", {
                 required: "Это поле обязательно",
-                min: 2,
-                max: 10,
-                pattern: {
-                  value: /^[A-Za-z\s]+$/,
-                  message: "Имя должно содержать только буквы",
-                },
               })}
+              onChange={handleNameChange} // Добавляем обработчик изменения для поля имени
             />
-            {errors.name && <p className="error">{errors.name.message}</p>}
+            {nameError && <p className="error">{nameError}</p>}
             <img src={line3} alt="" />
           </label>
           <label className=" mt-6 ">
@@ -70,13 +99,14 @@ const PopUp = () => {
               className="phone"
               {...register("phone", {
                 required: "Это поле обязательно",
-                minLength: 18,
               })}
-              onKeyDown={handlePhoneKeyDown} // Добавляем обработчик событий для поля телефона
+              onChange={handlePhoneChange} // Добавляем обработчик изменения для поля телефона
+              onKeyDown={handlePhoneKeyDown}
             />
-            {errors.phone && <p className="error">{errors.phone.message}</p>}
             <img src={line3} alt="" />
+            {phoneError && <p className="error">{phoneError}</p>}
           </label>
+
           <label className="check">
             <input
               type="checkbox"
@@ -88,11 +118,16 @@ const PopUp = () => {
             </p>
             {!watchCheckbox && <p className="error">Вы должны согласиться</p>}
           </label>
-          <button className="submit" onClick={handleSubmit(onSubmit)}>
+          <button
+            className="submit"
+            disabled={!isValid}
+            onClick={handleSubmit(onSubmit)}
+          >
             <img src={submitButton} alt="" />
           </button>
         </div>
-      </div>
+      </div>) : (<PopUpSaved onClick={onClick}/>)}
+      
     </div>
   );
 };

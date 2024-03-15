@@ -1,0 +1,48 @@
+.popUpSavedState{
+    margin-top: 40px;
+    margin-left: 75px;
+    margin-right: 32px;
+    margin-bottom: 174px;
+
+    .logoPop{
+        display: flex;
+          margin-left: auto;
+          margin-top: 209px;
+    }
+
+
+    .closeBtn {
+          background-color: transparent;
+          border: none;
+          display: flex;
+          margin-left: auto;
+          cursor: pointer;
+        }
+
+    .textForSaved{
+     font-family: "Raleway", sans-serif;
+        
+        h1{
+            font-weight: 600;
+            font-size: 50px;
+            color: #fff;
+            line-height: 79px;
+            width: 227px;
+            height: 158px;
+            margin-bottom:98px ;
+            text-align: center;
+            width: 447px;
+            height: 168px;
+        }
+
+        p{
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 58px;
+            text-align: center;
+            color: #fff ;
+        }
+    }
+}
+
+

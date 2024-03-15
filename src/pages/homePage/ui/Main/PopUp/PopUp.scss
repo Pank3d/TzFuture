@@ -1,19 +1,28 @@
 .popup {
-    z-index: 1;
+  display: flex;
+  z-index: 10;
+
   .popup_form {
     margin-top: 40px;
     margin-left: 75px;
     margin-right: 32px;
     margin-bottom: 174px;
 
+    .closeBtn {
+      background-color: transparent;
+      border: none;
+      display: flex;
+      margin-left: auto;
+      cursor: pointer;
+    }
 
-    .submit{
-        margin-top: 24px;
-        width: 380px;
-        height: 71px;
-        cursor: pointer;
-        background-color: transparent;
-        border: none;
+    .submit {
+      margin-top: 24px;
+      width: 380px;
+      height: 71px;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
     }
 
     .call {
@@ -31,26 +40,23 @@
       flex-direction: column;
       gap: 65px;
 
-      .check{
-
+      .check {
         width: 395px;
         height: 42px;
 
-
-        .SubmitForResponse{
-            width: 30px;
-            height: 30px;
-            margin-right: 23px;
+        .SubmitForResponse {
+          width: 30px;
+          height: 30px;
+          margin-right: 23px;
         }
-        
-        
-        margin-top:50px ;
+
+        margin-top: 50px;
         display: flex;
         justify-content: center;
         .checkText {
-            color: white;
-            padding: 0;
-            margin: 0;
+          color: white;
+          padding: 0;
+          margin: 0;
         }
       }
 
