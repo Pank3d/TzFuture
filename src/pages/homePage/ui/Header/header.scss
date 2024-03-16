@@ -7,6 +7,10 @@
     display: flex;
     justify-content: space-between;
      color: #fff;
+
+     .menuBurger{
+        display: none;
+     }
     
     .nav_list{
         display: flex;
